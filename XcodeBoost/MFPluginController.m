@@ -84,6 +84,7 @@
 	[submenu addItem:[self createMenuItemWithTitle:@"Select Method and Function Signatures" action:@selector(selectSubroutineSignatures_clicked:)]];
 	[submenu addItem:[self createMenuItemWithTitle:@"Duplicate Methods and Functions" action:@selector(duplicateSubroutines_clicked:)]];
 	[submenu addItem:[self createMenuItemWithTitle:@"Copy Method and Function Declarations" action:@selector(copySubroutineDeclarations_clicked:)]];
+    [submenu addItem:[self createMenuItemWithTitle:@"Copy Method Declarations" action:@selector(copyMethodDeclarations_clicked:)]];
 	[submenu addItem:[NSMenuItem separatorItem]];
 	[submenu addItem:[self createMenuItemWithTitle:@"Highlight Occurences of Symbol" action:@selector(highlightSelectedSymbols_clicked:)]];
 	[submenu addItem:[self createMenuItemWithTitle:@"Highlight Occurences of String" action:@selector(highlightSelectedStrings_clicked:)]];
@@ -162,7 +163,12 @@
 
 - (void)copySubroutineDeclarations_clicked:(id)sender
 {
-	[[[self currentSourceTextView] xb_manipulator] copySubroutineDeclarations];
+    [[[self currentSourceTextView] xb_manipulator] copySubroutineDeclarations];
+}
+
+- (void)copyMethodDeclarations_clicked:(id)sender
+{
+    [[[self currentSourceTextView] xb_manipulator] copyMethodDeclarations];
 }
 
 #pragma mark Highlighting Action Methods

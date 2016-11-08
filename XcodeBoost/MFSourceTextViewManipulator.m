@@ -179,16 +179,30 @@
 
 - (void)copySubroutineDeclarations
 {
-	NSArray *subroutineDefinitionRanges = [self.string xb_subroutineDefinitionRanges];
-	NSArray *selectedSubroutineDefinitionRanges = [self.sourceTextView xb_rangesFullyOrPartiallyContainedInSelection:subroutineDefinitionRanges wholeLines:YES];
-	
-	NSRange overarchingRange = [MFRangeHelper unionRangeWithRanges:selectedSubroutineDefinitionRanges];
-	if (overarchingRange.location == NSNotFound) return;
-	
-	NSString *overarchingString = [[self.textStorage string] substringWithRange:overarchingRange];
-	NSString *subroutineDeclarations = [overarchingString xb_extractSubroutineDeclarations];
-	
-	[self setPasteboardString:subroutineDeclarations];
+    NSArray *subroutineDefinitionRanges = [self.string xb_subroutineDefinitionRanges];
+    NSArray *selectedSubroutineDefinitionRanges = [self.sourceTextView xb_rangesFullyOrPartiallyContainedInSelection:subroutineDefinitionRanges wholeLines:YES];
+    
+    NSRange overarchingRange = [MFRangeHelper unionRangeWithRanges:selectedSubroutineDefinitionRanges];
+    if (overarchingRange.location == NSNotFound) return;
+    
+    NSString *overarchingString = [[self.textStorage string] substringWithRange:overarchingRange];
+    NSString *subroutineDeclarations = [overarchingString xb_extractSubroutineDeclarations];
+    
+    [self setPasteboardString:subroutineDeclarations];
+}
+
+- (void)copyMethodDeclarations
+{
+    NSArray *subroutineDefinitionRanges = [self.string xb_methodDefinitionRanges];
+    NSArray *selectedSubroutineDefinitionRanges = [self.sourceTextView xb_rangesFullyOrPartiallyContainedInSelection:subroutineDefinitionRanges wholeLines:YES];
+    
+    NSRange overarchingRange = [MFRangeHelper unionRangeWithRanges:selectedSubroutineDefinitionRanges];
+    if (overarchingRange.location == NSNotFound) return;
+    
+    NSString *overarchingString = [[self.textStorage string] substringWithRange:overarchingRange];
+    NSString *subroutineDeclarations = [overarchingString xb_extractSubroutineDeclarations];
+    
+    [self setPasteboardString:subroutineDeclarations];
 }
 
 - (void)duplicateSubroutines

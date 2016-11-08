@@ -27,6 +27,7 @@
 - (void)selectSubroutines;
 - (void)selectSubroutineSignatures;
 - (void)copySubroutineDeclarations;
+- (void)copyMethodDeclarations;
 - (void)duplicateSubroutines;
 
 #pragma mark Highlighting
